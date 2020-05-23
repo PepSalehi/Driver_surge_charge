@@ -94,7 +94,6 @@ def main():
         budget = data_instance.BUDGET
     # output_path = "./Outputs/avg_fare_info/" + str(beta) + "/"
 
-
     for fleet_size in fleet_sizes:
         for surge in surges:
             for perc_k in perc_know:
@@ -149,6 +148,7 @@ def main():
                         #                  + "fdemand " + str(percent_false_demand) + "perc_k " + str(
                         #                 perc_k) + "pro_s " + str(pro_s) + " repl" + str(repl) + ".p", "wb"))
                         #
+
 
 if __name__ == "__main__":
     main()
