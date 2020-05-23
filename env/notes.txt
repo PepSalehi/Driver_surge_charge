@@ -1,0 +1,38 @@
+https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+
+
+For deterministic case (i.e., driver knowledge of fare and supply), explore the following formulations when it comes to drivers' decision makings
+
+1. use total demand * avg fare
+1.1 How effective is chaning avg fare in this situation? 
+
+2. use relative demand * relative fare
+2.1 unclear how it would work 
+
+I think I should move to just choosing adjacent zones. it seems it's common in the literature as well. The problem with inclusion of non-neighboring zones is that the probabilities tend to get really small, which I think is causing issues for the driver behavior 
+
+what is the best way to store the information about neighboring zones? just a dictionary? {zone_id : [neighboring zones ]} then filter the df based on this? 
+
+
+
+
+
+
+model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+
+        state = np.reshape(state, [1, state_size])
+
+
+
+Problems: 
+state size 
+action space: zones are random numbers not ordered integers 
+The simulation and DQN interplay. If want to use DQNAGENT/keras-rl, then need to modify the current codebase. 
+The alternative seems to be that I make the training process more explicit. I think this is a better, more generalizable approach.
+
+Reward description is vague. 
+
+
+
+Flow: model with a dqn -> dispatch -> run dqn 
+how to get rewards?
