@@ -6,6 +6,7 @@ Created on Tue Mar 19 14:22:13 2019
 @author: peyman
 """
 # https://realpython.com/python-application-layouts/
+# https://stackoverflow.com/questions/41816973/modulenotfounderror-what-does-it-mean-main-is-not-a-package
 import argparse
 import os
 import pickle
@@ -22,6 +23,8 @@ from lib.utils import Model
 
 
 def main():
+    # TODO: all these should be cleaned up like this:
+    #  https://github.com/sisl/MADRL/blob/master/madrl_environments/walker/train_multi_walker.py
     parser = argparse.ArgumentParser(description="Simulation of drivers' behavior")
     parser.add_argument('-f', '--fleet',
                         help='Fleet sizes to simulate, formatted as comma-separated list (i.e. "-f 250,275,300")')

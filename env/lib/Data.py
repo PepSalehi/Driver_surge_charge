@@ -2,7 +2,7 @@ import json
 
 import numpy as np
 import pandas as pd
-from lib.Constants import DIST_MAT, ZONE_IDS
+from .Constants import DIST_MAT, ZONE_IDS
 
 
 class Data:

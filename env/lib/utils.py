@@ -5,7 +5,7 @@ from functools import lru_cache
 import numpy as np
 import pandas as pd
 
-from lib.Constants import (
+from .Constants import (
     ZONE_IDS,
     # DEMAND_SOURCE,
     INT_ASSIGN,
@@ -14,13 +14,14 @@ from lib.Constants import (
     SURGE_MULTIPLIER,
     BONUS,
     PERCENT_FALSE_DEMAND,
-    FUEL_COST
+    FUEL_COST,
+    DEMAND_UPDATE_INTERVAL
 )
 # from lib.Constants import PERCE_KNOW, CONST_FARE, AV_SHARE
-from lib.Operator import Operator
-from lib.Vehicles import Veh
-from lib.Zones import Zone
-from lib.configs import configs
+from .Operator import Operator
+from .Vehicles import Veh
+from .Zones import Zone
+from .configs import configs
 
 
 class Model:
@@ -228,7 +229,7 @@ class Model:
             # update drivers infor/expectations
 
         # generate demand only every 15 minutes
-        if t % 900 == 0:
+        if t % DEMAND_UPDATE_INTERVAL == 0:
             for z in self.zones:
                 z.generate_requests_to_time(t)  # t is seconds
 

@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Visualizations/.ipynb_checkpoints/animate_example-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Visualizations/Outputs/animation.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Visualizations/animate_example.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/MARL_env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Visualizations/animate_example.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Visualizations/animate_example.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/dqn_weights_1 with AV_share of 0.02 .h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Zones.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Zones.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -27,14 +33,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cJiJ8sFcLrBDjInuanUqjDdjXr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python&#10;Markdown" />
     <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -98,7 +108,8 @@
       <updated>1590253022906</updated>
       <workItem from="1590253024396" duration="4522000" />
       <workItem from="1590270826354" duration="240000" />
-      <workItem from="1590271083616" duration="1357000" />
+      <workItem from="1590271083616" duration="2739000" />
+      <workItem from="1590338064699" duration="2574000" />
     </task>
     <task id="LOCAL-00001" summary="Sync with local dev">
       <created>1590254551912</created>
@@ -128,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590272379950</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added the visualization module">
+      <created>1590272608025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590272608025</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +166,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/env" />
     </ignored-roots>

@@ -91,7 +91,7 @@ ANALYSIS_TIME_SECONDS = ANALYSIS_TIME_HOUR * 3600
 WARMUP_TIME_HOUR = 7  # used for setting up the demand 8am
 WARMUP_TIME_SECONDS = WARMUP_TIME_HOUR * 3600
 
-DEMAND_UPDATE_INTERVAL = 3600  # seconds -> TODO: make it 900
+DEMAND_UPDATE_INTERVAL = 900  # seconds -> TODO: make it 900
 POLICY_UPDATE_INTERVAL = 10 * 60  # 10 minutes
 MIN_DEMAND = 40  # min demand to have surge
 ANALYSIS_DURATION = 4 * 3600  # hours

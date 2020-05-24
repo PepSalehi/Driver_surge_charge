@@ -23,7 +23,7 @@ class Zone:
         N: number of requests
 
         mid: row number of the demand file
-        reqs: the list of requests
+        reqs: the list of requests. This is for debugging and reporting. demand served would NOT be removed from this list
         rejs: the list of rejected requests
         distance_rejs: the list of requests rejected because the distance from O to D
             was below the distance threshold (not included in rejs)
@@ -263,31 +263,9 @@ class Zone:
                                            size=int(rate)))
         y += t_15_start
         # print("arrival times are :", y)
-        self.__generate_exact_req_object2(y)
+        self.__generate_exact_req_object(y)
 
-        # dt = np.int(self.rs1.exponential(scale))
-        # try:
-        #     # destination = self.DD.iloc[self.mid]["DOLocationID"]
-        #     destination = self.DD.iloc[self.mid]["DOLocationID"]
-        #     # distance = self.DD.iloc[self.mid]["trip_distance_meter"]
-        #     fare = self.DD.iloc[self.mid]["fare_amount"] * self.surge + self.bonus
-        # except:
-        #     # if there are no more rows in the data
-        #     print("couldn't find anymore rows")
-        #     return None
-        #
-        # req = Req(
-        #     id=0 if self.N == 0 else self.reqs[-1].id + 1,
-        #     Tr=WARMUP_TIME_SECONDS + dt if self.N == 0 else self.reqs[-1].Tr + dt,
-        #     ozone=self.id,
-        #     dzone=destination,
-        #     fare=fare,
-        # )
-        # #                    dist = distance)
-        # self.mid += 1
-        # return req
-
-    def __generate_exact_req_object2(self, y):
+    def __generate_exact_req_object(self, y):
         # self.mid = 0
         # print("mid", self.mid)
         # def __generate_exact_req_object(self, y):
@@ -307,40 +285,6 @@ class Zone:
 
         self.reqs.extend(reqs)
         self.demand.extend(reqs)
-
-    # @profile
-    def __generate_exact_req_object(self, y):
-        self.mid = 0
-        # print("mid", self.mid)
-        # def __generate_exact_req_object(self, y):
-        for arr_time in y:
-            # print("mid", self.mid)
-            # destination = self.DD.iloc[self.mid]["DOLocationID"]
-            try:
-                destination = self.this_t_demand.iloc[self.mid]["DOLocationID"]
-            except IndexError:
-                print("sss")
-            # distance = self.DD.iloc[self.mid]["trip_distance_meter"]
-            # try:
-            fare = self.this_t_demand.iloc[self.mid]["fare_amount"] * self.surge + self.bonus
-            # except (IndexError, TypeError):
-            #     print("fare error")
-
-            req = Req(
-                id=0 if self.N == 0 else self.reqs[-1].id + 1,
-                # Tr=WARMUP_TIME_SECONDS + arr_time if self.N == 0 else self.reqs[-1].Tr + arr_time,
-                Tr=arr_time,
-                ozone=self.id,
-                dzone=destination,
-                fare=fare
-            )
-            self.reqs.append(req)
-            self.demand.append(req)
-            # print("len of reqs", len(self.reqs))
-            self.mid += 1
-            # except:
-            #     # if there are no more rows in the data
-            #     print("couldn't find anymore rows")
 
     # @profile
     def generate_requests_to_time(self, t):
