@@ -395,7 +395,7 @@
         <span class="k">return</span> <span class="n">dist</span>
 
     <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_get_both_supply_and_demand_per_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_both_supply_and_demand_per_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        @param t: time of day</span>
 <span class="sd">        @return (df): merged dataframe of demand and supply for all zones</span>
@@ -412,7 +412,7 @@
 <span class="sd">        @return: df with demand, supply, and costs for all zones</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calc_rebl_cost</span><span class="p">(</span><span class="n">ozone</span><span class="p">)</span>
-        <span class="n">d_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_both_supply_and_demand_per_zone</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">d_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_both_supply_and_demand_per_zone</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
         <span class="c1"># d_s_c = pd.merge(d_s, dist, left_index=True, right_on=&quot;DOLocationID&quot;)[[&quot;demand&quot;, &quot;supply&quot;, &quot;costs&quot;]].values</span>
         <span class="c1"># d_s_c = d_s_c[[&quot;demand&quot;, &quot;supply&quot;, &quot;costs&quot;]]</span>
         <span class="c1"># d_s_c = d_s_c.values</span>

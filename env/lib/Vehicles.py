@@ -16,8 +16,6 @@ from lib.Constants import (
     my_dist_class
 )
 
-from lib.Requests import Req
-from lib.configs import configs
 from functools import lru_cache
 from enum import Enum, unique, auto
 import pickle
@@ -475,6 +473,7 @@ class Veh:
                 # z.join_undecided_vehicles(self)
                 #
                 # if not WARMUP_PHASE:
+                # TODO: these are all useless. Change based on new request and zone codes
                 if not self.professional and not self.is_AV:
                     self.collected_fares.append((1 - PHI) * req.fare)
                     self.operator.revenues.append(PHI * req.fare)

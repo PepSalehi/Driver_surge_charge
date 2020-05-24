@@ -41,6 +41,7 @@ class Req:
         self.Td = -1.0
         self.D = 0.0
         self.DR = False
+        self.surge = 0
         # self.NS = 0
         # self.NP = 0
         # self.ND = 0
@@ -52,18 +53,7 @@ class Req:
         @return: tuple (distance, time)
         """
         try:
-
             ds = my_dist_class.return_distance(self.ozone, self.dzone)
-            # ds = np.ceil(
-            #     # self.DIST_MAT.query(
-            #     #     "PULocationID == {origin} & DOLocationID == {destination} ".format(
-            #     #         origin=self.ozone, destination=self.dzone
-            #     #     )
-            #     # )["trip_distance_meter"].values[0]
-            #     # DIST_MAT[(DIST_MAT["PULocationID"] == self.ozone) & (DIST_MAT["DOLocationID"] == self.dzone)][
-            #     #     "trip_distance_meter"].values[0]
-            #     DIST_MAT.loc[self.ozone,  self.dzone]["trip_distance_meter"].values
-            # )
         except:
             ds = 10 * 1609  # meter
             print("didn't find the distance")
@@ -81,6 +71,19 @@ class Req:
         @return: (int) the destination zone id
         """
         return self.dzone
+
+    def set_surge_value(self, surge):
+        assert surge <= 5
+        self.surge = surge
+
+    def get_effective_fare(self):
+        '''
+        from the operator's side.
+        based on https://www.uber.com/us/en/drive/driver-app/how-surge-works/
+        the operator also get money out of the assigned surge
+        :return:
+        '''
+        return self.fare * (1 + self.surge)
 
     # visualize
     # def draw(self):

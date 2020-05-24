@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # import geopandas as gpd
-from collections import deque
+from collections import deque, defaultdict
 # from functools import lru_cache
 from lib.Requests import Req
 from lib.Constants import WARMUP_TIME_SECONDS, BONUS
@@ -64,6 +64,8 @@ class Zone:
         self.adjusted_demand_rate = None
         self._n_matched = 0
         self.revenue_generated = 0
+        self.reward_dict = defaultdict(float)
+        #
         self._demand_history = []
         self._served_demand_history = []
         self._supply_history = []
@@ -170,32 +172,40 @@ class Zone:
         @param penalty (float)
         @return: None
         """
+
         for v in self.idle_vehicles[:]:
             if len(self.demand) > 0:
                 # check see if it's time
                 if self.demand[0].Tr <= t:
                     req = self.demand.popleft()
+                    req.set_surge_value(self.get_surge_multiplier())
                     status = v.match_w_req(req, Zones, WARMUP_PHASE)
-                    if status:  # if matched, remove from the zone's idle list
-                        #                    print("matched")
-                        self._n_matched += 1
-                        self.idle_vehicles.remove(v)
-                        assert v.ozone == req.dzone
-                        req.Tp = t
-                        # if not WARMUP_PHASE:
-                        self.served_demand.append(req)
-                        self.revenue_generated += req.fare * self.surge
-                        #
-                        operator.budget -= self.bonus
+                    self.calculate_reward(req, status, t, v)
 
-
-                    else:
-                        print("Not matched by zone ", self.id)
-                        if v.is_AV:
-                            "should be penalized"
-                            # v.profits.append(penalty)
+    def calculate_reward(self, req, status, t, v):
+        time_used_for_bookkeeping_rewards = np.ceil(t/900) # every 15 mins
+        if status:  # if matched, remove from the zone's idle list
+            self._n_matched += 1
+            before_len = len(self.idle_vehicles)
+            self.idle_vehicles.remove(v)  # does this correctly remove the vehicle?
+            assert len(self.idle_vehicles) < before_len
+            assert v.ozone == req.dzone
+            req.Tp = t
+            # if not WARMUP_PHASE:
+            self.served_demand.append(req)
+            self.revenue_generated += req.get_effective_fare()
+            #TODO: this is the total fare. Operator only gets a fraction of this
+            self.reward_dict[time_used_for_bookkeeping_rewards] += req.get_effective_fare()
+            #
+            # operator.budget -= self.bonus
+        else:
+            print("Not matched by zone ", self.id)
+            if v.is_AV:
+                "should be penalized"
+                # v.profits.append(penalty)
 
     # break
+
 
     def assign(self, Zones, t, WARMUP_PHASE, penalty, operator):
         """
@@ -213,6 +223,7 @@ class Zone:
         self._served_demand_history.append(len(self.served_demand))
         self._supply_history.append(len(self.idle_vehicles))
         self._incoming_supply_history.append(len(self.incoming_vehicles))
+        #
         self.match_veh_demand(Zones, t, WARMUP_PHASE, operator, penalty)
 
     def set_demand_rate_per_t(self, t):
@@ -229,6 +240,14 @@ class Zone:
         # self.D = self.pickup_binned[self.pickup_binned["total_seconds"] == t].shape[0]
         self.mid = 0
 
+    def set_bonus(self, bonus):
+        """
+        Sets the driver bonus for serving a zone
+        :param bonus: (float)
+        :return:
+        """
+        self.bonus = bonus
+
     def set_surge_multiplier(self, m):
         """
         Sets the surge multiplier.
@@ -236,6 +255,8 @@ class Zone:
         """
         self.surge = m
 
+    def get_surge_multiplier(self):
+        return self.surge
     # @profile
     def _generate_request(self, d, t_15):
         """

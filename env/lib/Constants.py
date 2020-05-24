@@ -1,4 +1,6 @@
 from functools import lru_cache
+import os
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -6,17 +8,20 @@ import json
 
 # zone neighbors dict
 # keys are strings
-with open("./Data/zones_neighbors.json", "r") as f:
+# https://stackoverflow.com/questions/40416072/reading-file-using-relative-path-in-python-project/40416154
+parent_path = Path(__file__).parent # / "../data/test.csv"
+# print(os.chdir())
+with open(parent_path / "../Data/zones_neighbors.json", "r") as f:
     zones_neighbors = json.load(f)
 
 # distance matrix
-DIST_MAT = pd.read_csv("./Data/dist_mat_2.csv")
+DIST_MAT = pd.read_csv(parent_path / "../Data/dist_mat_2.csv")
 # I know, from Taxi_data_new_iteration.ipynb, that zone 105 does not exist in the demand files.
 # remove it
 DIST_MAT.drop(DIST_MAT[DIST_MAT.DOLocationID == 105].index, inplace=True)
 
 # temp = pd.read_csv( "./Data/zones.csv", header=None, names=["zone_id"])
-zone_ids_file = pd.read_csv("./Data/zones_w_neighbors.csv")
+zone_ids_file = pd.read_csv(parent_path / "../Data/zones_w_neighbors.csv")
 ZONE_IDS = zone_ids_file.LocationID.values
 
 ZONE_IDS = list(set(ZONE_IDS).intersection(DIST_MAT.PULocationID.unique()))

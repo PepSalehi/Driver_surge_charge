@@ -18,7 +18,7 @@ from lib.Data import Data
 # from lib.Constants import T_TOTAL_SECONDS, WARMUP_TIME_SECONDS, ANALYSIS_TIME_SECONDS, ANALYSIS_TIME_HOUR, \
 #     WARMUP_TIME_HOUR
 # from lib.Constants import PERCE_KNOW
-from lib.configs import configs
+from lib.configs import config_dict
 from lib.utils import Model
 
 
@@ -72,7 +72,7 @@ def main():
     if args.beta:
         beta = float(args.beta)
     else:
-        beta = configs["BETA"]
+        beta = config_dict["BETA"]
 
     if args.pro:
         pro_share = [float(x) for x in args.pro.split(',')]

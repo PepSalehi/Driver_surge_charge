@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -14,10 +15,10 @@ class Data:
     """
 
     def __init__(self,
-                 path_zone_neighbors="./Data/zones_neighbors.json",
+                 path_zone_neighbors="../Data/zones_neighbors.json",
                  path_zones_w_neighbors="./Data/zones_w_neighbors.csv",
-                 path_daily_demand="./Data/Daily_demand/",
-                 day_of_run = 2,
+                 path_daily_demand="../Data/Daily_demand/",
+                 day_of_run=2,
                  bonus_policy="random",
                  budget=10000,
                  phi=0.25, fleet_size=None, pro_share=0,
@@ -62,13 +63,15 @@ class Data:
         @param analysis_duration: (int) in seconds
         @param t: (int) number of minutes for demand binning
         """
-
+        parent_path = Path(__file__).parent  # / "../data/test.csv"
+        path_zone_neighbors = parent_path / path_zone_neighbors
         # Zone neighbors dict, keys are strings
         self.day_of_run = day_of_run
 
         self.BUDGET = budget
-        self.FLEET_SIZE = None
-        if fleet_size is None:
+
+        self.FLEET_SIZE = fleet_size
+        if self.FLEET_SIZE is None:
             self.FLEET_SIZE = [1500]
         with open(path_zone_neighbors, 'r') as f:
             self.ZONES_NEIGHBORS = json.load(f)
@@ -83,7 +86,8 @@ class Data:
 
         # https://stackoverflow.com/questions/13651117/how-can-i-filter-lines-on-load-in-pandas-read-csv-function
         def __filter_data_to_day(day, fname):
-            iter_csv = pd.read_csv(fname + "demand_for_day_{}.csv".format(day), iterator=True, chunksize=1000)
+            # parent_path /
+            iter_csv = pd.read_csv(parent_path/ fname / "demand_for_day_{}.csv".format(day), iterator=True, chunksize=1000)
             df = pd.concat([chunk[chunk['Day'] == day] for chunk in iter_csv])
             return df
 
@@ -201,3 +205,15 @@ class Data:
         self.DEMAND_SOURCE["time_interval"] = np.floor(self.DEMAND_SOURCE["total_seconds"] / (bin_size * 60))
         self.BINNED_DEMAND = pickups_df_binned
         self.BINNED_OD = OD_df_binned
+
+    @classmethod
+    def init_from_config_dic(cls, config_dic):
+        "Initialize MyData from a dict. For simplicity, assume the config has all the ones we need defined"
+        return cls(budget=config_dic["BUDGET"],
+                   fleet_size=config_dic["FLEET_SIZE"],
+                   bonus_policy = config_dic["BONUS_POLICY"],
+                   perce_know=config_dic["PERC_KNOW"],
+                   bonus=config_dic["BONUS"],
+                   pro_share=config_dic["PRO_SHARE"],
+                   surge_multiplier=config_dic["SURGE_MULTIPLIER"]
+                   )

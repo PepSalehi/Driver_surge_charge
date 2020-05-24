@@ -7,6 +7,7 @@ from lib.Constants import (
     MIN_DEMAND,
     MAX_BONUS
 )
+from pathlib import Path
 
 
 class Operator:
@@ -34,18 +35,14 @@ class Operator:
         @param SURGE_MULTIPLIER: (float)
         """
         self.name = name
-        # self.demand_fare_stats_prior = pd.read_csv(
-        #     "./Data/df_hourly_stats_over_days.csv"
-        # )
-        # self.demand_fare_stats_of_the_day = pd.read_csv(
-        #     "./Data/df_hourly_stats.csv"
-        # ).query("Day=={d}".format(d=which_day_numerical))
+
+        parent_path = Path(__file__).parent
         self.demand_fare_stats_prior = pd.read_csv(
-            "./Data/stats_over_all_days.csv"
+            parent_path / "../Data/stats_over_all_days.csv"
         )
 
         self.demand_fare_stats_of_the_day = pd.read_csv(
-            "./Data/Daily_stats/stats_for_day_{}.csv".format(which_day_numerical)
+            parent_path / "../Data/Daily_stats/stats_for_day_{}.csv".format(which_day_numerical)
         )
 
         self.live_data = None
@@ -68,11 +65,12 @@ class Operator:
         else:
             return 0
 
-    def set_bonus(self, ratio):
+    def return_bonus_value(self, ratio):
         if self.BONUS_POLICY == "random":
             return self.random_bonus_function(ratio)
         if self.BONUS_POLICY == "const":
             return 5
+
 
     @staticmethod
     def surge_step_function(ratio):
@@ -175,6 +173,8 @@ class Operator:
 
     def update_zone_policy(self, t, zones, WARMUP_PHASE):
         """
+        TODO this is doing two things: surge and bonus. Should be disentangled.
+
         This is meant to be called with the main simulation.
         It automatically sets pricing policies for each zone.
         e.g., surge pricing
@@ -194,18 +194,18 @@ class Operator:
                 if len(z.demand) > MIN_DEMAND:
                     m = self.surge_step_function(ratio)
                     if not WARMUP_PHASE :
-                        z.surge = m
+                        z.set_surge_multiplier(m)
                         if m > 1:
                             z.num_surge += 1
                     if budget_left:
-                        bonus = self.set_bonus(ratio)
+                        bonus = self.return_bonus_value(ratio)
                         if not WARMUP_PHASE :
-                            z.bonus = bonus
+                            z.set_bonus(bonus)
                             print("bonus of ", bonus, " for zone ", z.id)
 
                 else:
-                    z.surge = 1  # resets surge
-                    z.bonus = 0  # reset bonus
+                    z.set_surge_multiplier(1)  # resets surge
+                    z.set_bonus(0)  # reset bonus
                 if not budget_left:
                     z.bonus = 0
 

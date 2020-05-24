@@ -21,7 +21,7 @@ from .Constants import (
 from .Operator import Operator
 from .Vehicles import Veh
 from .Zones import Zone
-from .configs import configs
+from .configs import config_dict
 
 
 class Model:
@@ -33,7 +33,7 @@ class Model:
     def __init__(
             self,
             data_obj,
-            beta=configs["BETA"]
+            beta=config_dict["BETA"]
     ):
         """
         @param zone_ids:
@@ -141,8 +141,8 @@ class Model:
         Updates the self.zones attribute in-place.
         """
         for z_id in self.zone_ids:
-            Z = Zone(z_id,  rs=self.rs1)
-            Z.read_daily_demand(self.daily_OD_demand) # , self.daily_pickup_demand
+            Z = Zone(z_id, rs=self.rs1)
+            Z.read_daily_demand(self.daily_OD_demand)  # , self.daily_pickup_demand
             self.zones.append(Z)
 
     def _create_vehicles(self, beta=1):
@@ -245,19 +245,19 @@ class Model:
         """
 
         for veh in self.vehilcs:
-                    _ = veh.act(t, self.zones, warmup_phase)
+            _ = veh.act(t, self.zones, warmup_phase)
 
-            # if not veh.is_AV:  # AV is already being moved by the engine
-            #     _ = veh.act(t, self.zones, WARMUP_PHASE)
-            # if veh.is_AV:
-            #     # if veh.should_move(): this causes errors, since move is not just moving, but also rebalancing, waiting, etc.
-            #     veh.act(t, self.zones, WARMUP_PHASE, action)
+        # if not veh.is_AV:  # AV is already being moved by the engine
+        #     _ = veh.act(t, self.zones, WARMUP_PHASE)
+        # if veh.is_AV:
+        #     # if veh.should_move(): this causes errors, since move is not just moving, but also rebalancing, waiting, etc.
+        #     veh.act(t, self.zones, WARMUP_PHASE, action)
 
     def assign_zone_veh(self, t, warmup_phase, penalty, operator):
         """
         Assigns zone to each vehicle.this_t_demand
 
-        @param t: time of day
+        @param t: time of day (seconds)
         @param warmup_phase (bool): whether we are in the warmup phase
         @param penalty (float): penalty amount
         @return: None
@@ -271,7 +271,7 @@ class Model:
         """
         performance_results = {}
         for z in self.zones:
-            print( "req lengths",len(z.reqs))
+            print("req lengths", len(z.reqs))
             w = len(z.demand)
             served = len(z.served_demand)
             los = served / (served + w) if (served + w) > 0 else 0
@@ -304,9 +304,10 @@ class Model:
         @param action
         @return: None
         """
-        self.generate_zonal_demand(t)
-        self.operator.update_zonal_info(t)
-        self.operator.update_zone_policy(t, self.zones, self.WARMUP_PHASE)
+        if t % DEMAND_UPDATE_INTERVAL == 0:
+            self.generate_zonal_demand(t)
+            self.operator.update_zonal_info(t)
+        # self.operator.update_zone_policy(t, self.zones, self.WARMUP_PHASE)
         self.assign_zone_veh(t, self.WARMUP_PHASE, penalty, self.operator)
         self.move_fleet(t, self.WARMUP_PHASE, action)
 
@@ -365,14 +366,15 @@ class Model:
         return dist
 
     @lru_cache(maxsize=None)
-    def _get_both_supply_and_demand_per_zone(self, t):
+    def get_both_supply_and_demand_per_zone(self, t):
         """
         @param t: time of day
         @return (df): merged dataframe of demand and supply for all zones
         """
         demand_df = self._get_demand_per_zone(t)
         supply_df = self._get_supply_per_zone(t)
-        return pd.merge(demand_df, supply_df, left_index=True, right_index=True)
+        return demand_df, supply_df
+        # return pd.merge(demand_df, supply_df, left_index=True, right_index=True)
 
     @lru_cache(maxsize=None)
     def _get_demand_supply_costs_df(self, ozone, t):
@@ -382,7 +384,7 @@ class Model:
         @return: df with demand, supply, and costs for all zones
         """
         dist = self._calc_rebl_cost(ozone)
-        d_s = self._get_both_supply_and_demand_per_zone(t)
+        d_s = self.get_both_supply_and_demand_per_zone(t)
         # d_s_c = pd.merge(d_s, dist, left_index=True, right_on="DOLocationID")[["demand", "supply", "costs"]].values
         # d_s_c = d_s_c[["demand", "supply", "costs"]]
         # d_s_c = d_s_c.values
