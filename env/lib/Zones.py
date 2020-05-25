@@ -5,7 +5,7 @@ import pandas as pd
 from collections import deque, defaultdict
 # from functools import lru_cache
 from lib.Requests import Req
-from lib.Constants import WARMUP_TIME_SECONDS, BONUS
+from lib.Constants import WARMUP_TIME_SECONDS, BONUS, POLICY_UPDATE_INTERVAL
 from lib.Vehicles import VehState
 
 
@@ -183,7 +183,7 @@ class Zone:
                     self.calculate_reward(req, status, t, v)
 
     def calculate_reward(self, req, status, t, v):
-        time_used_for_bookkeeping_rewards = np.ceil(t/900) # every 15 mins
+        time_used_for_bookkeeping_rewards = np.ceil(t / POLICY_UPDATE_INTERVAL)  # every 15 mins
         if status:  # if matched, remove from the zone's idle list
             self._n_matched += 1
             before_len = len(self.idle_vehicles)
@@ -194,7 +194,7 @@ class Zone:
             # if not WARMUP_PHASE:
             self.served_demand.append(req)
             self.revenue_generated += req.get_effective_fare()
-            #TODO: this is the total fare. Operator only gets a fraction of this
+            # TODO: this is the total fare. Operator only gets a fraction of this
             self.reward_dict[time_used_for_bookkeeping_rewards] += req.get_effective_fare()
             #
             # operator.budget -= self.bonus
@@ -205,7 +205,6 @@ class Zone:
                 # v.profits.append(penalty)
 
     # break
-
 
     def assign(self, Zones, t, WARMUP_PHASE, penalty, operator):
         """
@@ -257,6 +256,15 @@ class Zone:
 
     def get_surge_multiplier(self):
         return self.surge
+
+    def generate_performance_stats(self):
+        w = len(self.demand)
+        served = len(self.served_demand) # this is just accumulative, need to define sth else
+        unserved_demand = w - served
+        assert unserved_demand >= 0
+        los = served / (served + w) if (served + w) > 0 else 0
+        return (w, served, unserved_demand, los)
+
     # @profile
     def _generate_request(self, d, t_15):
         """

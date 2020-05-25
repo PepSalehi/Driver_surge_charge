@@ -304,9 +304,9 @@ class Model:
         @param action
         @return: None
         """
-        if t % DEMAND_UPDATE_INTERVAL == 0:
-            self.generate_zonal_demand(t)
-            self.operator.update_zonal_info(t)
+        # if t % DEMAND_UPDATE_INTERVAL == 0:
+        self.generate_zonal_demand(t)
+        self.operator.update_zonal_info(t)
         # self.operator.update_zone_policy(t, self.zones, self.WARMUP_PHASE)
         self.assign_zone_veh(t, self.WARMUP_PHASE, penalty, self.operator)
         self.move_fleet(t, self.WARMUP_PHASE, action)

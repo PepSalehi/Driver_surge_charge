@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="changed demand generation to 15 mins. started rl env">
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algos/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RL_ridehailing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RL_ridehailing.iml" afterDir="false" />
+    <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/MARL_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/MARL_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/utils.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/_build/html/_modules/lib/utils.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/lib/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Operator.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Operator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Vehicles.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Vehicles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/lib/Zones.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Zones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/configs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive.py" beforeDir="false" afterPath="$PROJECT_DIR$/interactive.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +177,7 @@
       <workItem from="1590253024396" duration="4522000" />
       <workItem from="1590270826354" duration="240000" />
       <workItem from="1590271083616" duration="2739000" />
-      <workItem from="1590338064699" duration="16464000" />
+      <workItem from="1590338064699" duration="20836000" />
     </task>
     <task id="LOCAL-00001" summary="Sync with local dev">
       <created>1590254551912</created>
@@ -232,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590341878781</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="MARL env&#10;path files changed based on Pathlib">
+      <created>1590361967240</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590361967240</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +255,8 @@
     <MESSAGE value="Sync with local dev" />
     <MESSAGE value="added the visualization module" />
     <MESSAGE value="changed demand generation to 15 mins. started rl env" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed demand generation to 15 mins. started rl env" />
+    <MESSAGE value="MARL env&#10;path files changed based on Pathlib" />
+    <option name="LAST_COMMIT_MESSAGE" value="MARL env&#10;path files changed based on Pathlib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -269,17 +266,12 @@
           <line>8</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/interactive.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RL_ridehailing$configs.coverage" NAME="configs Coverage Results" MODIFIED="1590343990863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env/lib" />
     <SUITE FILE_PATH="coverage/RL_ridehailing$MARL_env.coverage" NAME="MARL_env Coverage Results" MODIFIED="1590358665994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
-    <SUITE FILE_PATH="coverage/RL_ridehailing$interactive.coverage" NAME="interactive Coverage Results" MODIFIED="1590361333571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
+    <SUITE FILE_PATH="coverage/RL_ridehailing$interactive.coverage" NAME="interactive Coverage Results" MODIFIED="1590366196871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
   </component>
 </project>

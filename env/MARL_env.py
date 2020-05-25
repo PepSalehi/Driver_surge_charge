@@ -4,13 +4,14 @@ from gym import spaces
 from lib.Data import Data
 from lib.configs import config_dict
 from lib.utils import Model
-from lib.Constants import POLICY_UPDATE_INTERVAL, WARMUP_TIME_SECONDS, T_TOTAL_SECONDS
+from lib.Constants import POLICY_UPDATE_INTERVAL, WARMUP_TIME_SECONDS, T_TOTAL_SECONDS, INT_ASSIGN, \
+    ANALYSIS_TIME_SECONDS, DEMAND_UPDATE_INTERVAL
 
 import time
 import os
 
 
-class MARLEnv(gym.Env):
+class MultiAgentEnv(gym.Env):
 
     def __init__(self):
         # data_instance = Data.init_from_config_dic(config_dict)
@@ -46,13 +47,13 @@ class MARLEnv(gym.Env):
                 self.model.budget -= requested_bonus
                 zone.set_bonus(requested_bonus)
         # simulate for a while (e.g., 10 mins)
-        for t in range(self.T + POLICY_UPDATE_INTERVAL):
+        for t in range(self.T, self.T + POLICY_UPDATE_INTERVAL, INT_ASSIGN):
             self.model.dispatch_at_time(t)
 
         # observe the next state
         states = self._get_states()
         # observe the (global) reward
-        reward = self._get_reward()
+        reward = self._get_reward_unserved()
         # other info
         info = self._get_info()
         # update the clock
@@ -66,6 +67,16 @@ class MARLEnv(gym.Env):
         data_instance = Data.init_from_config_dic(config_dict)
         self.model = Model(data_instance)
         self.T = WARMUP_TIME_SECONDS
+        # run the warm up period
+        for t in range(self.T, self.T + 3600, INT_ASSIGN):
+            self.model.dispatch_at_time(t)
+        self.T = ANALYSIS_TIME_SECONDS
+        print("##########################")
+        print("##########################")
+        print("End of the warm up time ")
+        print("##########################")
+        print("##########################")
+
 
     def _get_states(self):
         """
@@ -77,7 +88,10 @@ class MARLEnv(gym.Env):
         return demand
 
     def _get_reward(self):
-        return np.sum([z.reward_dict[self.T / 900] for z in self.model.zones])
+        return np.sum([z.reward_dict[np.ceil(self.T / POLICY_UPDATE_INTERVAL)] for z in self.model.zones])
+
+    def _get_reward_unserved(self):
+        return np.sum([z.generate_performance_stats()[2] for z in self.model.zones])
 
     def _get_info(self):
         return None
@@ -86,10 +100,9 @@ class MARLEnv(gym.Env):
         pass
 
     def _is_done(self):
-        if self.T == T_TOTAL_SECONDS:
-            return True
-        return False
+        return self.T == T_TOTAL_SECONDS
+
 
 
 if __name__ == "__main__":
-    MARLEnv()
+    MultiAgentEnv()

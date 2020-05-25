@@ -74,7 +74,7 @@ PERCE_KNOW = 0  # percentage of drivers that know the avg fare
 CONST_FARE = 6  # fare used when they don't know the true avg fare
 SURGE_MULTIPLIER = 2
 BONUS = 0
-MAX_BONUS = 3
+MAX_BONUS = 5
 # constant speed
 CONSTANT_SPEED = 8  # meters per second
 
@@ -97,7 +97,7 @@ WARMUP_TIME_HOUR = 7  # used for setting up the demand 8am
 WARMUP_TIME_SECONDS = WARMUP_TIME_HOUR * 3600
 
 DEMAND_UPDATE_INTERVAL = 900  # seconds -> TODO: make it 900
-POLICY_UPDATE_INTERVAL = 10 * 60  # 10 minutes
+POLICY_UPDATE_INTERVAL = 5 * 60
 MIN_DEMAND = 40  # min demand to have surge
 ANALYSIS_DURATION = 4 * 3600  # hours
 # warm-up time, study time and cool-down time of the simulation (in seconds)
