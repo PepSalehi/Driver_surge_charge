@@ -80,7 +80,7 @@ class MultiAgentEnv(gym.Env):
 
     def _get_states(self):
         """
-        Place holder. should return info per zone and its neighbors
+        Place holder. should return info per zone
 
         :return:
         """

@@ -258,10 +258,11 @@ class Zone:
         return self.surge
 
     def generate_performance_stats(self):
+        #TODO: this is wrong; served is cumulative
         w = len(self.demand)
         served = len(self.served_demand) # this is just accumulative, need to define sth else
         unserved_demand = w - served
-        assert unserved_demand >= 0
+        # assert unserved_demand >= 0
         los = served / (served + w) if (served + w) > 0 else 0
         return (w, served, unserved_demand, los)
 

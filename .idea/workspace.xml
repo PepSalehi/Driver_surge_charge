@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/profiling_outputs/myRL.cprof" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/MARL_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/MARL_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/lib/Zones.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Zones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive.py" beforeDir="false" afterPath="$PROJECT_DIR$/interactive.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +176,7 @@
       <workItem from="1590253024396" duration="4522000" />
       <workItem from="1590270826354" duration="240000" />
       <workItem from="1590271083616" duration="2739000" />
-      <workItem from="1590338064699" duration="20836000" />
+      <workItem from="1590338064699" duration="22270000" />
     </task>
     <task id="LOCAL-00001" summary="Sync with local dev">
       <created>1590254551912</created>
@@ -228,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590361967240</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed MARL env demand">
+      <created>1590369602435</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590369602435</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +262,8 @@
     <MESSAGE value="added the visualization module" />
     <MESSAGE value="changed demand generation to 15 mins. started rl env" />
     <MESSAGE value="MARL env&#10;path files changed based on Pathlib" />
-    <option name="LAST_COMMIT_MESSAGE" value="MARL env&#10;path files changed based on Pathlib" />
+    <MESSAGE value="fixed MARL env demand" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed MARL env demand" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

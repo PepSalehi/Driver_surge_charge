@@ -19,6 +19,8 @@ pip install snakeviz
 python -m cProfile -s tottime -o myscript.cprof run.py -f 10 -k 0.2
 python -m cProfile -s tottime -o myscript4.cprof run_parallel_for_avg_fare.py -f 1000 -k 0.2 -r 1
 
+python -m cProfile -s tottime -o ./profiling_outputs/myRL.cprof interactive.py
+
 snakeviz myscript.cprof 
 line_profiler
 kernprof -l -v run.py -f 10 -k 0.2
