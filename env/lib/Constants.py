@@ -97,9 +97,9 @@ WARMUP_TIME_HOUR = 7  # used for setting up the demand 8am
 WARMUP_TIME_SECONDS = WARMUP_TIME_HOUR * 3600
 
 DEMAND_UPDATE_INTERVAL = 900  # seconds -> TODO: make it 900
-POLICY_UPDATE_INTERVAL = 5 * 60
+POLICY_UPDATE_INTERVAL = 15 * 60
 MIN_DEMAND = 40  # min demand to have surge
-ANALYSIS_DURATION = 4 * 3600  # hours
+ANALYSIS_DURATION = 10 * 3600  # hours
 # warm-up time, study time and cool-down time of the simulation (in seconds)
 # start_time_offset + 1 hour warm up + 1 hour analysis
 T_TOTAL_SECONDS = WARMUP_TIME_SECONDS + 3600 + ANALYSIS_DURATION

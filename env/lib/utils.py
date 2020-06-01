@@ -1,5 +1,6 @@
+import csv
 import pickle
-from collections import Counter
+from collections import Counter, defaultdict
 from functools import lru_cache
 
 import numpy as np
@@ -15,7 +16,8 @@ from .Constants import (
     BONUS,
     PERCENT_FALSE_DEMAND,
     FUEL_COST,
-    DEMAND_UPDATE_INTERVAL
+    DEMAND_UPDATE_INTERVAL,
+    POLICY_UPDATE_INTERVAL
 )
 # from lib.Constants import PERCE_KNOW, CONST_FARE, AV_SHARE
 from .Operator import Operator
@@ -112,10 +114,10 @@ class Model:
         self._create_vehicles(beta)
 
         print(Counter(v.ozone for v in self.vehilcs))
-
+        self.performance_results = defaultdict(dict)
         # TODO: debug, delete this
         self.targets = []
-        self.performance_results = {}
+
 
     def __calc_s(self, df):
         """
@@ -304,9 +306,12 @@ class Model:
         @param action
         @return: None
         """
+        if t % POLICY_UPDATE_INTERVAL == 0:
+            self.get_zonal_stats(t)
         # if t % DEMAND_UPDATE_INTERVAL == 0:
         self.generate_zonal_demand(t)
         self.operator.update_zonal_info(t)
+
         # self.operator.update_zone_policy(t, self.zones, self.WARMUP_PHASE)
         self.assign_zone_veh(t, self.WARMUP_PHASE, penalty, self.operator)
         self.move_fleet(t, self.WARMUP_PHASE, action)
@@ -399,6 +404,23 @@ class Model:
         @return : matrix of size (#zones * 3), where each row is  (u_i, v_i, c_ij)
         """
         return self._get_demand_supply_costs_df(veh.ozone, t)
+
+    def get_zonal_stats(self, t):
+        self.performance_results[np.ceil(t/POLICY_UPDATE_INTERVAL)] = {z.id: z.generate_performance_stats(t)
+                                                                       for z in self.zones}
+
+    def save_zonal_stats(self, abs_path):
+
+        performance_results = pd.concat({t: pd.DataFrame(stats).T for t, stats in self.performance_results.items()}, axis=0)
+        print(performance_results.head())
+        print(performance_results.shape)
+        performance_results.columns = [ 'w', 'u', 'total_demand' , 'served', 'un_served_demand', 'denied','los']
+        with open(abs_path + 'stats.pickle', 'wb') as handle:
+            pickle.dump(self.performance_results, handle)
+
+        performance_results.to_csv(abs_path + 'mycsvfile'+ '_fleet_{}'.format(config_dict["FLEET_SIZE"]) +'.csv')
+
+
 
 
 if __name__ == "__main__":

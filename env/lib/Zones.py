@@ -5,8 +5,14 @@ import pandas as pd
 from collections import deque, defaultdict
 # from functools import lru_cache
 from lib.Requests import Req
-from lib.Constants import WARMUP_TIME_SECONDS, BONUS, POLICY_UPDATE_INTERVAL
+from lib.Constants import WARMUP_TIME_SECONDS, BONUS, POLICY_UPDATE_INTERVAL, DEMAND_UPDATE_INTERVAL
 from lib.Vehicles import VehState
+
+
+def get_time_for_bookkeeping(t):
+    time_used_for_bookkeeping_rewards = np.ceil(
+        (t - POLICY_UPDATE_INTERVAL) / POLICY_UPDATE_INTERVAL)  # every 15 mins
+    return time_used_for_bookkeeping_rewards
 
 
 class Zone:
@@ -46,7 +52,7 @@ class Zone:
         self.demand = deque([])  # demand maybe should be a time-based dictionary?
         self.served_demand = []
         self.idle_vehicles = list()
-        self.busy_vehicles = list()
+        # self.busy_vehicles = list()
         self.incoming_vehicles = list()
         self.undecided_vehicles = list()
         self.fare = None
@@ -65,6 +71,8 @@ class Zone:
         self._n_matched = 0
         self.revenue_generated = 0
         self.reward_dict = defaultdict(float)
+        self.served_req_dict = defaultdict(float)
+        self.denied_req_dict = defaultdict(float)
         #
         self._demand_history = []
         self._served_demand_history = []
@@ -123,6 +131,7 @@ class Zone:
             print(veh.ozone)
             print(veh.rebalancing)
             print(veh.time_to_be_available)
+            raise AssertionError
 
         self.incoming_vehicles.append(veh)
 
@@ -140,6 +149,7 @@ class Zone:
             print(veh.idle)
             print(veh.rebalancing)
             print(veh.time_to_be_available)
+            raise AssertionError
 
         self.undecided_vehicles.append(veh)
 
@@ -173,6 +183,7 @@ class Zone:
         @return: None
         """
 
+        # if there are no idle vehicles but there is demand, how do we take care of that?
         for v in self.idle_vehicles[:]:
             if len(self.demand) > 0:
                 # check see if it's time
@@ -182,8 +193,27 @@ class Zone:
                     status = v.match_w_req(req, Zones, WARMUP_PHASE)
                     self.calculate_reward(req, status, t, v)
 
+        if len(self.demand) > 0:
+            del_idx = []
+            before_len = len(self.demand)
+            demand_list = []
+            excess_waits = []
+
+            for req in self.demand:
+                if req.has_exceeded_waiting_time(t):
+                    self.denied_req_dict[get_time_for_bookkeeping(t)] += 1
+                    # print("request {} in zone {} at time {} had excess wait with wait={} ".format(req.id, self.id, t,
+                    #                                                                               req.get_waiting_time(
+                    #                                                                                   t)))
+                    excess_waits.append(req)
+                else:
+                    demand_list.append(req)
+
+            self.demand = deque(demand_list)
+
     def calculate_reward(self, req, status, t, v):
-        time_used_for_bookkeeping_rewards = np.ceil(t / POLICY_UPDATE_INTERVAL)  # every 15 mins
+        time_used_for_bookkeeping_rewards = get_time_for_bookkeeping(t)
+        # np.ceil(t / POLICY_UPDATE_INTERVAL)  # every 15 mins
         if status:  # if matched, remove from the zone's idle list
             self._n_matched += 1
             before_len = len(self.idle_vehicles)
@@ -196,9 +226,10 @@ class Zone:
             self.revenue_generated += req.get_effective_fare()
             # TODO: this is the total fare. Operator only gets a fraction of this
             self.reward_dict[time_used_for_bookkeeping_rewards] += req.get_effective_fare()
-            #
+            self.served_req_dict[time_used_for_bookkeeping_rewards] += 1
             # operator.budget -= self.bonus
-        else:
+
+        else:  # when does this happen?
             print("Not matched by zone ", self.id)
             if v.is_AV:
                 "should be penalized"
@@ -231,19 +262,16 @@ class Zone:
         This should use self.demand as the (hourly) demand, and then generate demand according to a Poisson distribution
         @param t: seconds
         """
-        t_15_min = np.floor(t / 900)
+        t_15_min = np.floor(t / DEMAND_UPDATE_INTERVAL)
         # demand = self.DD.query("Hour == {T}".format(T=t))
         self.this_t_demand = self.DD[self.DD['time_of_day_index_15m'] == t_15_min]
         self.D = self.this_t_demand.shape[0]  # number of rows, i.e., transactions
-        # print(self.D, "inside set demand")
-        # self.D = self.pickup_binned[self.pickup_binned["total_seconds"] == t].shape[0]
-        self.mid = 0
 
     def set_bonus(self, bonus):
         """
         Sets the driver bonus for serving a zone
         :param bonus: (float)
-        :return:
+        :return: None
         """
         self.bonus = bonus
 
@@ -257,14 +285,19 @@ class Zone:
     def get_surge_multiplier(self):
         return self.surge
 
-    def generate_performance_stats(self):
-        #TODO: this is wrong; served is cumulative
-        w = len(self.demand)
-        served = len(self.served_demand) # this is just accumulative, need to define sth else
-        unserved_demand = w - served
+    def generate_performance_stats(self, t):
+        time_used_for_bookkeeping_rewards = get_time_for_bookkeeping(t)
+        w = len(self.demand)  # current demand
+        u = len(self.idle_vehicles)  # current supply
+        served = self.served_req_dict[time_used_for_bookkeeping_rewards]
+        denied = self.denied_req_dict[time_used_for_bookkeeping_rewards]
+        total_demand = self.D
+        un_served_demand = total_demand - served
         # assert unserved_demand >= 0
-        los = served / (served + w) if (served + w) > 0 else 0
-        return (w, served, unserved_demand, los)
+        # los = served / (served + w) if (served + w) > 0 else 0
+        los = served / total_demand if total_demand > 0 else 0
+
+        return w, u, total_demand, served, un_served_demand, denied, los
 
     # @profile
     def _generate_request(self, d, t_15):
@@ -279,10 +312,10 @@ class Zone:
         """
         # check if there is any demand first
         if self.D == 0:  # i.e., no demand
-            print("no demand")
+            print("zone {} has no demand at t_15: {}".format(self.id, t_15))
             return
 
-        time_interval = 900.0  # 15 minutes. TODO: make sure this imports from constants.py
+        time_interval = DEMAND_UPDATE_INTERVAL  # 15 minutes. TODO: make sure this imports from constants.py
         t_15_start = t_15 * time_interval
         # print("t_15_start :", t_15_start)
         rate = d
@@ -334,36 +367,6 @@ class Zone:
         # print("self.D", self.D)
         # print("demand after surge computation", demand)
         self._generate_request(self.D, t_15_min)
-
-        # if there has not been a previous demand, just create one
-        # if self.N == 0:
-        #     req = self._generate_request()
-        #     if req is not None:
-        #         self.reqs.append(req)
-        #         self.N += 1
-        #
-        # d = self.calculate_demand_function(self.D, self.surge)
-        # before_demand = len(self.demand)
-        # while d != 0 and self.reqs[-1].Tr <= t:
-        #     # if there was a prior demand, check and see if the time was handled correctly
-        #     req = self._generate_request(d)
-        #     if req is not None:
-        #         self.demand.append(req)
-        #         self.reqs.append(req)
-        #         self.N += 1
-        #         # for debugging, number of requests per 5 minutes
-        #         self._time_demand.append(
-        #             np.floor((req.Tr - WARMUP_TIME_SECONDS) / (5 * 60))
-        #         )
-        #     else:
-        #         break
-        #
-        # after_demand = len(self.demand)
-        # if after_demand - before_demand > 100:
-        #     print("Huge increase in the number of requests over 30 seconds!!")
-        #     print("d ", d)
-        #     print("T ", T)
-        #     print("zone id ", self.id)
 
 # TODO: df_hourly_stats_over_days is what a professional driver knows
 # TODO: df_hourly_stats is stats per hour per day. Can be the true information provided by the operator (although how are they gonna know it in advance?)

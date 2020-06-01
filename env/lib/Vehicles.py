@@ -473,56 +473,6 @@ class Veh:
                 # z.join_undecided_vehicles(self)
                 #
                 # if not WARMUP_PHASE:
-                # TODO: these are all useless. Change based on new request and zone codes
-                if not self.professional and not self.is_AV:
-                    self.collected_fares.append((1 - PHI) * req.fare)
-                    self.operator.revenues.append(PHI * req.fare)
-                    self.collected_fare_per_zone[req.ozone] += (1 - PHI) * req.fare
-
-                elif self.professional:
-                    self.collected_fares.append(req.fare)
-                    self.operator.revenues.append(req.fare)
-                    self.collected_fare_per_zone[req.ozone] += req.fare
-
-                self.locations.append(dest)
-                self.distance_travelled += dist
-                self.profits.append(
-                    req.fare
-                )
-                if self.is_AV:
-                    # print("thre fare was", req.fare)
-                    # print("proftis are ", self.profits)
-                    self.reqs.append(req)
-                    self.locations.append(dest)
-                    self.total_served += 1
-
-                    try:
-                        assert len(self._info_for_rl_agent) == 2
-                    except AssertionError:
-                        print(self._state)
-                        print(self.waited_too_long())
-                        print(self.time_idled)
-                        print(self._info_for_rl_agent)
-                        print(len(self.reqs))
-                        print([r.fare for r in self.reqs])
-                        print(self.time_to_be_available)
-                        print(self.total_served)
-                        raise AssertionError
-
-                    self._info_for_rl_agent.append(np.round(req.fare, 4))  # doesn't account for rebl cost yet
-                    try:
-                        assert len(self._info_for_rl_agent) == 3
-                    except AssertionError:
-                        print(self._state)
-                        print(self.waited_too_long())
-                        print(self.time_idled)
-                        print(self._info_for_rl_agent)
-                        print(len(self.reqs))
-                        print([r.fare for r in self.reqs])
-                        print(self.time_to_be_available)
-                        print(self.total_served)
-                        raise AssertionError
-
                 self.req = req
                 return True
 

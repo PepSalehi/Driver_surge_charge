@@ -215,5 +215,6 @@ class Data:
                    perce_know=config_dic["PERC_KNOW"],
                    bonus=config_dic["BONUS"],
                    pro_share=config_dic["PRO_SHARE"],
-                   surge_multiplier=config_dic["SURGE_MULTIPLIER"]
+                   surge_multiplier=config_dic["SURGE_MULTIPLIER"],
+                   analysis_duration=config_dic["ANALYSIS_DURATION"]
                    )

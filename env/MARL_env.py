@@ -87,11 +87,14 @@ class MultiAgentEnv(gym.Env):
         demand, supply = self.model.get_both_supply_and_demand_per_zone(self.T)
         return demand
 
+    def _get_stats(self):
+        self.stats = [z.generate_performance_stats() for z in self.model.zones]
+
     def _get_reward(self):
         return np.sum([z.reward_dict[np.ceil(self.T / POLICY_UPDATE_INTERVAL)] for z in self.model.zones])
 
     def _get_reward_unserved(self):
-        return np.sum([z.generate_performance_stats()[2] for z in self.model.zones])
+        return np.sum([z.generate_performance_stats(self.T)[3] for z in self.model.zones])
 
     def _get_info(self):
         return None

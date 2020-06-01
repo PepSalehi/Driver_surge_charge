@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from lib.Constants import DIST_MAT, CONSTANT_SPEED, my_dist_class
+from lib.configs import config_dict
 
 
 class Req:
@@ -42,6 +43,7 @@ class Req:
         self.D = 0.0
         self.DR = False
         self.surge = 0
+        self.MAX_WAIT = config_dict["MAX_WAIT"]
         # self.NS = 0
         # self.NP = 0
         # self.ND = 0
@@ -85,6 +87,17 @@ class Req:
         '''
         return self.fare * (1 + self.surge)
 
+    def get_waiting_time(self, t):
+        """
+        :param t: current time in seconds
+        :return:
+        """
+        return t - self.Tr
+
+    def has_exceeded_waiting_time(self, t):
+        if self.get_waiting_time(t) >= self.MAX_WAIT:
+            return True
+        return False
     # visualize
     # def draw(self):
     #     import matplotlib.pyplot as plt
