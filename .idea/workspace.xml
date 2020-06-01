@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/step_1_mapping-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/Untitled.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/performance_results.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/served_denied_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/served_denied_demand_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/step_1_mapping.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_1500.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_2000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_2500.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_3000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_3500.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_4000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_6000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/performance_stats/stats.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/MARL_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/MARL_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Requests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Vehicles.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Vehicles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/Zones.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/Zones.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/configs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/run_parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/run_parallel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiling_outputs/myRL.cprof" beforeDir="false" afterPath="$PROJECT_DIR$/profiling_outputs/myRL.cprof" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +183,7 @@
       <workItem from="1590271083616" duration="2739000" />
       <workItem from="1590338064699" duration="22599000" />
       <workItem from="1590422887953" duration="20696000" />
-      <workItem from="1590689364513" duration="868000" />
+      <workItem from="1590689364513" duration="1114000" />
     </task>
     <task id="LOCAL-00001" summary="Sync with local dev">
       <created>1590254551912</created>
@@ -275,7 +248,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590373842193</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Minor fixes">
+      <created>1591042496253</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1591042496253</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added gitignore">
+      <created>1591042707987</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1591042707987</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +292,8 @@
     <MESSAGE value="MARL env&#10;path files changed based on Pathlib" />
     <MESSAGE value="fixed MARL env demand" />
     <MESSAGE value="Minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

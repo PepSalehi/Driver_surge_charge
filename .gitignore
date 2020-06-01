@@ -15,4 +15,4 @@ Data/taxi_zones/taxi_zones.shp
 ./some_dqn_trials/*
 some_dqn_trials
 ./performance_stats/*
-
+./performance_stats
