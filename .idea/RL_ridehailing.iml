@@ -2,10 +2,10 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/env" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/env/env/envs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.6.8 (sftp://peymano@transitlab2.mit.edu:22/home/peymano/anaconda3/envs/my_test/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.6.10 (sftp://peymano@jtlcomputing.mit.edu:22/home/peymano/anaconda3/envs/w_cuda_torch/bin/python3.6)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

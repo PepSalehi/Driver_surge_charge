@@ -13,7 +13,7 @@ import os
 
 class MultiAgentEnv(gym.Env):
 
-    def __init__(self):
+    def __init__(self, env_config):
         # data_instance = Data.init_from_config_dic(config_dict)
         # self.model = Model(data_instance)
         # self.T = WARMUP_TIME_SECONDS
@@ -30,6 +30,7 @@ class MultiAgentEnv(gym.Env):
             shape=(1,),
             dtype=np.float32
         )
+
         self.reset()
 
     def step(self, action_n):
@@ -38,7 +39,6 @@ class MultiAgentEnv(gym.Env):
         action_n is {z_id:bonus}
         instead of the operator, the env sets the bonus values
         """
-
         for zone in self.model.zones:
             requested_bonus = action_n[zone.id]
             # make sure it is within bounds
@@ -46,6 +46,7 @@ class MultiAgentEnv(gym.Env):
             if requested_bonus <= self.model.budget:
                 self.model.budget -= requested_bonus
                 zone.set_bonus(requested_bonus)
+
         # simulate for a while (e.g., 10 mins)
         for t in range(self.T, self.T + POLICY_UPDATE_INTERVAL, INT_ASSIGN):
             self.model.dispatch_at_time(t)

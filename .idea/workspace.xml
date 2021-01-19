@@ -2,11 +2,168 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca1a3b77-cb55-457f-b6e4-4ba715511567" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/MPC-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/a basic cvx example-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/factory planning 1 -checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/solve_min_cost-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/MPC.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/a basic cvx example.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/factory planning 1 .ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/solve_min_cost.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/env/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/env/envs/MultiAgentBonusEnv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/env/envs/simple_single_agent_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gym_env/gym_env/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gym_env/gym_env/envs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gym_env/gym_env/envs/foo_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gym_env/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes_on_making_env.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train_rllib_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/RL_ridehailing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RL_ridehailing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/lib/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/lib/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/Simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/Simulation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/sshConfigs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.ipynb_checkpoints/interactive_analysis-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.ipynb_checkpoints/interactive_analysis-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/.ipynb_checkpoints/tt-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/.ipynb_checkpoints/tt-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Analysis/basic_analysis_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/Analysis/basic_analysis_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/MARL_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/MARL_env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Untitled-3.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/Untitled-3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/lib.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/lib.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/lib/trial.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/lib/trial.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/modules.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/modules.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/doctrees/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/.buildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Data.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Env.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Env.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Env_aggregate_step_func.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Env_aggregate_step_func.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Operator.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Operator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Requests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Vehicles.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Vehicles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/Zones.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/Zones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/utils.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/utils.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_modules/lib/utils_with_rel_engine.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_modules/lib/utils_with_rel_engine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/lib.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/lib.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/lib/trial.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/lib/trial.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/modules.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/modules.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_sources/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/alabaster.css" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/alabaster.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/doctools.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/doctools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/documentation_options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/file.png" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/file.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/jquery-3.4.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/jquery-3.4.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/language_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/language_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/minus.png" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/minus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/plus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/pygments.css" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/pygments.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/searchtools.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/searchtools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/underscore-1.3.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/underscore-1.3.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/_static/underscore.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/_static/underscore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/lib.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/lib.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/lib/trial.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/lib/trial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/modules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/Jinja2-2.10.3.dist-info/LICENSE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/MarkupSafe-1.1.1.dist-info/LICENSE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/alabaster-0.7.12.dist-info/DESCRIPTION.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/pyparsing-2.4.2.dist-info/DESCRIPTION.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.html" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/_build/html/venv/Lib/site-packages/sphinx/ext/autosummary/templates/autosummary/module.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/interactive_analysis.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Env_aggregate_step_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Env_aggregate_step_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Exploratory analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Exploratory analysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Operator.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Operator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Requests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Vehicles.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Vehicles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Visualize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/Zones.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/Zones.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/build/temp.macosx-10.7-x86_64-3.6/Vehicles.o" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/build/temp.macosx-10.7-x86_64-3.6/Vehicles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/dqn_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/dqn_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/my_cython_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/my_cython_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/train_rl.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/train_rl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/lib/utils_with_rel_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/lib/utils_with_rel_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/make.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/modules.rst" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/modules.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/myscript4.cprof" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/rl_analysis_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/rl_analysis_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/run.py.lprof" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/run_parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/run_parallel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/run_parallel_for_avg_fare.py.lprof" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/temp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/test_rl.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/test_rl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/test_rl_with_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/test_rl_with_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/testing_pandas_speedup_techniques.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/train_dqn_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/train_dqn_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/train_rl.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/train_rl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/train_rl_cmd_temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/train_rl_cmd_temp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/tt.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/visualize_know_f_2000.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/visualize_know_f_2000.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/viz_zone_demand.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env/envs/viz_zone_demand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_3000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/performance_stats/mycsvfile_fleet_3000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance_stats/stats.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/performance_stats/stats.pickle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +177,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -54,12 +211,15 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/env/my_wn" />
+      <recent name="$PROJECT_DIR$/env" />
+      <recent name="$PROJECT_DIR$/my_env" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/env" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/env" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -74,7 +234,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run">
+  <component name="RunManager" selected="Python.train_rllib_1">
     <configuration name="MARL_env" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RL_ridehailing" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,28 +251,6 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/env/MARL_env.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="animatate" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="RL_ridehailing" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Visualizations" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Visualizations/animatate.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -185,13 +323,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train_rllib_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RL_ridehailing" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_rllib_1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run" />
+        <item itemvalue="Python.train_rllib_1" />
         <item itemvalue="Python.interactive" />
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.MARL_env" />
         <item itemvalue="Python.configs" />
-        <item itemvalue="Python.animatate" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +370,12 @@
       <workItem from="1590271083616" duration="2739000" />
       <workItem from="1590338064699" duration="22599000" />
       <workItem from="1590422887953" duration="20696000" />
-      <workItem from="1590689364513" duration="3218000" />
+      <workItem from="1590689364513" duration="4978000" />
+      <workItem from="1592224132928" duration="3973000" />
+      <workItem from="1592235762403" duration="19796000" />
+      <workItem from="1600820626332" duration="1142000" />
+      <workItem from="1601316423638" duration="1042000" />
+      <workItem from="1602701685547" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="Sync with local dev">
       <created>1590254551912</created>
@@ -296,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591042775305</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added gitignore">
+      <created>1591046119938</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1591046119939</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +505,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/env/train_rl.py</url>
+          <url>file://$PROJECT_DIR$/env/env/envs/train_rl.py</url>
           <line>8</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -343,7 +515,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RL_ridehailing$configs.coverage" NAME="configs Coverage Results" MODIFIED="1590343990863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env/lib" />
     <SUITE FILE_PATH="coverage/RL_ridehailing$MARL_env.coverage" NAME="MARL_env Coverage Results" MODIFIED="1590358665994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
-    <SUITE FILE_PATH="coverage/RL_ridehailing$run.coverage" NAME="run Coverage Results" MODIFIED="1591043757064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
-    <SUITE FILE_PATH="coverage/RL_ridehailing$interactive.coverage" NAME="interactive Coverage Results" MODIFIED="1590366196871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
+    <SUITE FILE_PATH="coverage/RL_ridehailing$run.coverage" NAME="run Coverage Results" MODIFIED="1592235553238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/env" />
+    <SUITE FILE_PATH="coverage/RL_ridehailing$interactive.coverage" NAME="interactive Coverage Results" MODIFIED="1592423109036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
+    <SUITE FILE_PATH="coverage/RL_ridehailing$train_rllib_1.coverage" NAME="train_rllib_1 Coverage Results" MODIFIED="1592688691737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
